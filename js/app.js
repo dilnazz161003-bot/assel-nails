@@ -123,29 +123,46 @@
       </svg>`;
   }
 
+  // Широкий баннер для раздела прайса
+  function menuArt(color, bg) {
+    return `
+      <svg viewBox="0 0 300 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <rect width="300" height="120" fill="${bg}"/>
+        <ellipse cx="150" cy="110" rx="80" ry="5" fill="#000" opacity=".12"/>
+        <use href="#bottle" x="100" y="8" width="52" height="104"/>
+        <use href="#nail" x="162" y="30" width="40" height="80" fill="${color}"/>
+      </svg>`;
+  }
+
+  // Цена услуги так, как в прайсе: «от 500 ₸», «+1 000 ₸», «10 000 – 11 000 ₸»
+  function priceLabel(sv) {
+    if (sv.priceTo) return `${formatPrice(sv.price).replace(' ₸', '')} – ${formatPrice(sv.priceTo)}`;
+    return (sv.priceFrom ? t('services.from') + ' ' : '') + (sv.plus ? '+' : '') + formatPrice(sv.price);
+  }
+
   function renderServices() {
-    $('#serviceList').innerHTML = SERVICES.map((s, i) => {
-      const on = state.selected.has(s.id);
-      return `
-        <li class="service ${on ? 'is-selected' : ''}" style="--c:${s.swatch}; --i:${i}">
-          <div class="service__art">${bottleArt(s.swatch, s.bg)}</div>
-          <div class="service__body">
-            <h3 class="service__name">${tx(s.name)}</h3>
-            <p class="service__desc">${tx(s.desc)}</p>
-          </div>
-          <div class="service__meta">
-            <p class="service__price">${s.priceFrom ? `<small>${t('services.from')}</small> ` : ''}${formatPrice(s.price)}</p>
-            <p class="service__time">${formatDuration(s.duration)}</p>
-          </div>
-          <button type="button" class="service__btn" data-id="${s.id}" aria-pressed="${on}">
-            <span class="service__btn-dot" aria-hidden="true"></span>${on ? t('services.added') : t('services.add')}
-            <span class="sr-only">: ${tx(s.name)}</span>
-          </button>
-        </li>`;
-    }).join('');
+    $('#serviceList').innerHTML = CATEGORIES.map((c, i) => `
+      <li class="menu" style="--i:${i}">
+        <div class="menu__art">${menuArt(c.swatch, c.bg)}</div>
+        <h3 class="menu__title">${tx(c.name)}</h3>
+        <ul class="menu__list">
+          ${SERVICES.filter((sv) => sv.cat === c.id).map((sv) => {
+            const on = state.selected.has(sv.id);
+            return `
+            <li>
+              <button type="button" class="menu__item ${on ? 'is-selected' : ''}" data-id="${sv.id}" aria-pressed="${on}" style="--c:${sv.swatch}">
+                <span class="menu__check" aria-hidden="true"></span>
+                <span class="menu__name">${tx(sv.name)}${sv.note ? `<small>${tx(sv.note)}</small>` : ''}</span>
+                <span class="menu__price">${priceLabel(sv)}</span>
+              </button>
+            </li>`;
+          }).join('')}
+        </ul>
+      </li>`).join('');
+    $('#priceDate').textContent = tx(PRICE_DATE);
   }
   $('#serviceList').addEventListener('click', (e) => {
-    const btn = e.target.closest('.service__btn');
+    const btn = e.target.closest('.menu__item');
     if (btn) toggleService(btn.dataset.id);
   });
 
@@ -270,6 +287,7 @@
   const selectedServices = () => SERVICES.filter((s) => state.selected.has(s.id));
   const totalPrice = () => selectedServices().reduce((sum, s) => sum + s.price, 0);
   const totalDuration = () => selectedServices().reduce((sum, s) => sum + s.duration, 0);
+  const totalPriceMax = () => selectedServices().reduce((sum, s) => sum + (s.priceTo || s.price), 0);
   const hasFromPrice = () => selectedServices().some((s) => s.priceFrom);
 
   // Детерминированный «шум», чтобы демо-занятость не прыгала при перерисовке
@@ -318,16 +336,18 @@
 
   /* ---------- Шаг 1 ---------- */
   function renderPickList() {
-    $('#pickList').innerHTML = SERVICES.map((s) => {
-      const on = state.selected.has(s.id);
-      return `
-        <label class="pick ${on ? 'is-on' : ''}" style="--c:${s.swatch}">
-          <input type="checkbox" value="${s.id}" ${on ? 'checked' : ''}>
+    $('#pickList').innerHTML = CATEGORIES.map((c) => `
+      <p class="pick-group">${tx(c.name)}</p>
+      ${SERVICES.filter((sv) => sv.cat === c.id).map((sv) => {
+        const on = state.selected.has(sv.id);
+        return `
+        <label class="pick ${on ? 'is-on' : ''}" style="--c:${sv.swatch}">
+          <input type="checkbox" value="${sv.id}" ${on ? 'checked' : ''}>
           <span class="pick__swatch" aria-hidden="true"></span>
-          <span class="pick__name">${tx(s.name)}</span>
-          <span class="pick__meta">${s.priceFrom ? t('services.from') + ' ' : ''}${formatPrice(s.price)} · ${formatDuration(s.duration)}</span>
+          <span class="pick__name">${tx(sv.name)}</span>
+          <span class="pick__meta">${priceLabel(sv)} · ${formatDuration(sv.duration)}</span>
         </label>`;
-    }).join('');
+      }).join('')}`).join('');
   }
   $('#pickList').addEventListener('change', (e) => {
     if (e.target.matches('input[type="checkbox"]')) {
@@ -417,7 +437,10 @@
 
   /* ---------- Итог ---------- */
   function priceText() {
-    return (hasFromPrice() ? t('services.from') + ' ' : '') + formatPrice(totalPrice());
+    if (hasFromPrice()) return `${t('services.from')} ${formatPrice(totalPrice())}`;
+    const max = totalPriceMax();
+    if (max > totalPrice()) return `${formatPrice(totalPrice()).replace(' ₸', '')} – ${formatPrice(max)}`;
+    return formatPrice(totalPrice());
   }
 
   function timeRange() {
@@ -428,7 +451,7 @@
   function renderSummary() {
     const list = selectedServices();
     $('#summaryList').innerHTML = list.length
-      ? list.map((s) => `<li style="--c:${s.swatch}"><span>${tx(s.name)}</span><b>${formatPrice(s.price)}</b></li>`).join('')
+      ? list.map((s) => `<li style="--c:${s.swatch}"><span>${tx(s.name)}</span><b>${priceLabel(s)}</b></li>`).join('')
       : `<li class="summary__empty">${t('booking.empty')}</li>`;
     $('#sumDuration').textContent = list.length ? `${t('booking.approx')} ${formatDuration(totalDuration())}` : '—';
     $('#sumDate').textContent = state.date && state.time ? `${formatDateLong(state.date)}, ${timeRange()}` : (state.date ? formatDateLong(state.date) : '—');
@@ -443,9 +466,9 @@
   function phoneDigits() {
     const raw = phoneInput.value.trim();
     let d = raw.replace(/\D/g, '');
-    if (raw.startsWith('+7')) d = d.slice(1);
-    else if (d.length === 11 && /^[78]/.test(d)) d = d.slice(1);
-    if (d.startsWith('8')) d = d.slice(1); // привычка набирать «8» в начале
+    if (d.length >= 11) d = d.slice(-10);           // номер целиком (в т.ч. вставка поверх «+7»)
+    else if (raw.startsWith('+7')) d = d.slice(1);
+    if (d.length < 10 && d.startsWith('8')) d = d.slice(1); // привычка набирать «8» в начале
     return ('7' + d).slice(0, 11);
   }
 
@@ -582,7 +605,8 @@
   $('#lnkInstagram').href = igUrl;
   $('#lnkInstagramText').href = igUrl;
   $('#lnkWhatsapp').href = `https://wa.me/${CONFIG.whatsapp}`;
-  $('#lnkTelegram').href = `https://t.me/${CONFIG.telegram}`;
+  $('#lnkPhone').href = `tel:+${CONFIG.whatsapp}`;
+  $('#lnkPhone').lastChild.textContent = CONFIG.phone;
   $('#lnkMap').href = CONFIG.twoGisUrl;
   $('#year').textContent = new Date().getFullYear();
 

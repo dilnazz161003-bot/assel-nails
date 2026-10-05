@@ -4,12 +4,10 @@
    ========================================================== */
 
 const CONFIG = {
-  // Номер WhatsApp в международном формате, только цифры (без +).
-  // ЗАМЕНИТЕ на реальный номер мастера.
-  whatsapp: '77000000000',
+  // Номер WhatsApp в международном формате, только цифры (без +)
+  whatsapp: '77028864446',
+  phone: '+7 702 886 44 46',
   instagram: 'master_nail.uralsk',
-  // Ник в Telegram без @. ЗАМЕНИТЕ на реальный.
-  telegram: 'master_nail_uralsk',
   twoGisUrl: 'https://2gis.kz/uralsk/search/%D0%A2%D0%94%20%D0%90%D1%81%D1%82%D0%B0%D0%BD%D0%B0',
 
   // График работы: 0 — воскресенье, 1 — понедельник … 6 — суббота
@@ -29,69 +27,51 @@ const CONFIG = {
   demoBusy: true,
 };
 
-/* Услуги: цена в тенге, длительность в минутах */
+/* Прайс (актуален с 1 декабря 2025 г.)
+   price — цена в тенге; priceTo — верхняя граница диапазона;
+   priceFrom — «от»; plus — доплата к основной услуге («+1 000 ₸»).
+   duration — ориентировочная длительность в минутах (уточните у мастера). */
+const PRICE_DATE = { ru: 'Цены актуальны с 1 декабря 2025 г.', kk: 'Бағалар 2025 жылғы 1 желтоқсаннан бастап жарамды.' };
+
+const CATEGORIES = [
+  { id: 'manicure', swatch: '#E3C3AE', bg: '#EADFD2', name: { ru: 'Маникюр', kk: 'Маникюр' } },
+  { id: 'extra', swatch: '#C99A92', bg: '#E3CFC6', name: { ru: 'Дополнительно и снятие', kk: 'Қосымша және алу' } },
+  { id: 'pedicure', swatch: '#6E2A30', bg: '#E0CFCB', name: { ru: 'Педикюр', kk: 'Педикюр' } },
+];
+
 const SERVICES = [
-  {
-    id: 'manicure',
-    bg: '#EADFD2',
-    swatch: '#E6CDB9',
-    price: 4000,
-    duration: 60,
-    name: { ru: 'Маникюр', kk: 'Маникюр' },
-    desc: {
-      ru: 'Комбинированный маникюр, форма, кутикула, уход. Без покрытия.',
-      kk: 'Құрама маникюр, пішін, кутикула, күтім. Жабынсыз.',
-    },
-  },
-  {
-    id: 'gel',
-    bg: '#E3CFC6',
-    swatch: '#C99A86',
-    price: 7000,
-    duration: 90,
-    name: { ru: 'Маникюр + гель-лак', kk: 'Маникюр + гель-лак' },
-    desc: {
-      ru: 'Выравнивание пластины базой и стойкое покрытие в один тон.',
-      kk: 'Тақтайшаны базамен түзету және бір түсті тұрақты жабын.',
-    },
-  },
-  {
-    id: 'extension',
-    bg: '#E6D6C8',
-    swatch: '#A4553A',
-    price: 12000,
-    duration: 150,
-    name: { ru: 'Наращивание', kk: 'Ұзарту' },
-    desc: {
-      ru: 'Гель на верхние формы, любая длина и архитектура. Покрытие включено.',
-      kk: 'Жоғарғы формаларға гель, кез келген ұзындық пен архитектура. Жабын кіреді.',
-    },
-  },
-  {
-    id: 'design',
-    bg: '#DCCBBC',
-    swatch: '#8B6B5C',
-    price: 1500,
-    duration: 30,
-    priceFrom: true,
-    name: { ru: 'Дизайн', kk: 'Дизайн' },
-    desc: {
-      ru: 'Френч, втирка, графика, абстракция. Цена зависит от сложности.',
-      kk: 'Френч, үйкеме, графика, абстракция. Бағасы күрделілігіне байланысты.',
-    },
-  },
-  {
-    id: 'pedicure',
-    bg: '#E0CFCB',
-    swatch: '#6E2A30',
-    price: 9000,
-    duration: 90,
-    name: { ru: 'Педикюр + покрытие', kk: 'Педикюр + жабын' },
-    desc: {
-      ru: 'Аппаратный педикюр стоп и пальцев с покрытием гель-лаком.',
-      kk: 'Табан мен саусақтарға аппараттық педикюр, гель-лак жабынымен.',
-    },
-  },
+  { id: 'mani-bare', cat: 'manicure', swatch: '#E6CDB9', price: 4000, duration: 60,
+    name: { ru: 'Маникюр без покрытия', kk: 'Жабынсыз маникюр' } },
+  { id: 'mani-gel', cat: 'manicure', swatch: '#C99A86', price: 7000, duration: 90,
+    name: { ru: 'Маникюр с покрытием', kk: 'Жабынмен маникюр' } },
+  { id: 'mani-strong', cat: 'manicure', swatch: '#B98378', price: 8000, duration: 120,
+    name: { ru: 'Маникюр с укреплением', kk: 'Нығайтумен маникюр' },
+    note: { ru: 'акригель / полигель', kk: 'акригель / полигель' } },
+  { id: 'extension', cat: 'manicure', swatch: '#A4553A', price: 10000, priceTo: 11000, duration: 150,
+    name: { ru: 'Наращивание ногтей', kk: 'Тырнақ ұзарту' } },
+
+  { id: 'remove-other', cat: 'extra', swatch: '#D8BBA8', price: 1000, duration: 15,
+    name: { ru: 'Снятие чужого покрытия', kk: 'Басқа шебердің жабынын алу' } },
+  { id: 'remove-only', cat: 'extra', swatch: '#CDB79E', price: 1000, duration: 20,
+    name: { ru: 'Снятие без последующего покрытия', kk: 'Кейін жабынсыз алу' } },
+  { id: 'french', cat: 'extra', swatch: '#F3E8DE', price: 1000, plus: true, duration: 15,
+    name: { ru: 'Френч', kk: 'Френч' } },
+  { id: 'design', cat: 'extra', swatch: '#8B6B5C', price: 500, priceFrom: true, duration: 15,
+    name: { ru: 'Дизайн', kk: 'Дизайн' } },
+  { id: 'repair', cat: 'extra', swatch: '#B89A88', price: 500, priceTo: 1000, duration: 15,
+    name: { ru: 'Ремонт 1 ногтя', kk: '1 тырнақты жөндеу' } },
+
+  { id: 'pedi-full', cat: 'pedicure', swatch: '#6E2A30', price: 11000, duration: 120,
+    name: { ru: 'Полный педикюр', kk: 'Толық педикюр' },
+    note: { ru: 'стопы + пальчики + покрытие', kk: 'табан + саусақтар + жабын' } },
+  { id: 'pedi-bare', cat: 'pedicure', swatch: '#D6AE98', price: 9000, duration: 90,
+    name: { ru: 'Педикюр без покрытия', kk: 'Жабынсыз педикюр' },
+    note: { ru: 'стопы + пальчики', kk: 'табан + саусақтар' } },
+  { id: 'pedi-mini', cat: 'pedicure', swatch: '#9C5A57', price: 7000, duration: 75,
+    name: { ru: 'Мини-педикюр', kk: 'Мини-педикюр' },
+    note: { ru: 'только пальчики + покрытие', kk: 'тек саусақтар + жабын' } },
+  { id: 'pedi-toes', cat: 'pedicure', swatch: '#E2C2AF', price: 5000, duration: 45,
+    name: { ru: 'Обработка пальчиков', kk: 'Саусақтарды өңдеу' } },
 ];
 
 /* Портфолио: style — фильтр, palette — цвета для плейсхолдера */
