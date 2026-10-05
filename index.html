@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title data-i18n="meta.title">Асель — нейл-студия в Уральске</title>
+  <meta name="description" data-i18n-attr="content:meta.description" content="Авторский маникюр и педикюр в Уральске: нюд, френч, дизайн. Онлайн-запись к мастеру Асель, ТД «Астана 2».">
+  <meta name="theme-color" content="#F7F2EC">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23A4553A'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Перейти к содержимому</a>
+
+  <!-- Общие SVG-символы: форма ногтя -->
+  <svg width="0" height="0" class="sr-only" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="nail" viewBox="0 0 80 160">
+        <path d="M40 0C66 0 80 30 80 70v70c0 12-10 20-22 20H22C10 160 0 152 0 140V70C0 30 14 0 40 0Z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ============ Шапка ============ -->
+  <header class="header" id="top">
+    <div class="header__inner">
+      <a class="brand" href="#top" aria-label="Асель — nail studio">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span class="brand__name" data-i18n="brand.name">Асель</span>
+        <span class="brand__sub" data-i18n="brand.sub">nail studio</span>
+      </a>
+
+      <nav class="nav" id="nav" data-i18n-attr="aria-label:nav.label" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#about"><span class="nav__swatch" style="--c:#E6CDB9"></span><span data-i18n="nav.about">Обо мне</span></a></li>
+          <li><a class="nav__link" href="#services"><span class="nav__swatch" style="--c:#C99A86"></span><span data-i18n="nav.services">Услуги</span></a></li>
+          <li><a class="nav__link" href="#portfolio"><span class="nav__swatch" style="--c:#B97E6A"></span><span data-i18n="nav.portfolio">Работы</span></a></li>
+          <li><a class="nav__link" href="#shade"><span class="nav__swatch" style="--c:#A4553A"></span><span data-i18n="nav.shade">Оттенок</span></a></li>
+          <li><a class="nav__link" href="#reviews"><span class="nav__swatch" style="--c:#8B4A45"></span><span data-i18n="nav.reviews">Отзывы</span></a></li>
+          <li><a class="nav__link" href="#booking"><span class="nav__swatch" style="--c:#6E2A30"></span><span data-i18n="nav.booking">Запись</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <div class="lang" role="group" data-i18n-attr="aria-label:lang.label" aria-label="Язык сайта">
+          <button type="button" class="lang__btn" data-lang="ru" aria-pressed="true" lang="ru">RU</button>
+          <button type="button" class="lang__btn" data-lang="kk" aria-pressed="false" lang="kk">KZ</button>
+        </div>
+        <a class="btn btn--small btn--dark header__cta" href="#booking" data-i18n="cta.book">Записаться</a>
+        <button type="button" class="burger" aria-expanded="false" aria-controls="nav" data-i18n-attr="aria-label:nav.open" aria-label="Открыть меню">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ 1. Первый экран ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__text">
+        <p class="eyebrow reveal" data-i18n="hero.eyebrow">Нейл-студия · Уральск</p>
+        <h1 class="hero__title reveal" id="hero-title">
+          <span class="hero__name" data-i18n="hero.title1">Асель</span>
+          <span class="hero__line"><span data-i18n="hero.title2">ногти как</span> <em data-i18n="hero.title3">тихая роскошь</em></span>
+        </h1>
+        <p class="hero__lead reveal" data-i18n="hero.lead">Минимализм, нюдовые оттенки, тонкий френч и сложный авторский дизайн — в спокойной студии, где за процедуру отвечает один мастер.</p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--accent" href="#booking" data-i18n="cta.book">Записаться</a>
+          <a class="btn btn--ghost" href="#portfolio" data-i18n="hero.works">Смотреть работы</a>
+        </div>
+        <p class="hero__meta reveal">
+          <span class="dot-row" aria-hidden="true"><i style="--c:#E6CDB9"></i><i style="--c:#A4553A"></i><i style="--c:#6E2A30"></i></span>
+          <span data-i18n="hero.address">ТД «Астана 2», 2 этаж, бутик 11</span>
+        </p>
+      </div>
+
+      <div class="hero__art reveal" role="img" data-i18n-attr="aria-label:hero.art" aria-label="Абстрактная композиция: ногти и круглые свотчи лаков в тёплых оттенках">
+        <svg viewBox="0 0 520 620" aria-hidden="true" focusable="false">
+          <path class="art-arch" d="M70 620V280a190 190 0 0 1 380 0v340Z"/>
+          <circle class="art-orbit" cx="260" cy="300" r="232"/>
+          <circle cx="90" cy="120" r="44" fill="#A4553A" class="float float--a"/>
+          <circle cx="455" cy="96" r="22" fill="#E6CDB9" class="float float--b"/>
+          <circle cx="470" cy="470" r="34" fill="#6E2A30" class="float float--c"/>
+          <circle cx="40" cy="430" r="16" fill="#C99A86" class="float float--b"/>
+          <circle cx="132" cy="560" r="10" fill="#2B2320"/>
+
+          <g class="art-nails">
+            <use href="#nail" x="150" y="210" width="80" height="160" fill="#E6CDB9" transform="rotate(-14 190 290)"/>
+            <g transform="rotate(-4 262 260)">
+              <use href="#nail" x="222" y="150" width="80" height="160" fill="#EBD3C3"/>
+              <path d="M228 194c4-26 18-40 34-40s30 14 34 40c-12-10-22-14-34-14s-22 4-34 14Z" fill="#FBF8F3"/>
+            </g>
+            <use href="#nail" x="296" y="190" width="80" height="160" fill="#A4553A" transform="rotate(8 336 270)"/>
+            <use href="#nail" x="360" y="260" width="70" height="140" fill="#6E2A30" transform="rotate(20 395 330)"/>
+          </g>
+
+          <g class="art-swatches">
+            <circle cx="170" cy="470" r="38" fill="#F1E6DA" stroke="#2B2320" stroke-opacity=".12"/>
+            <circle cx="250" cy="470" r="38" fill="#D8BBA8"/>
+            <circle cx="330" cy="470" r="38" fill="#A4553A"/>
+            <circle cx="410" cy="470" r="20" fill="none" stroke="#2B2320" stroke-opacity=".3"/>
+          </g>
+          <text x="96" y="536" class="art-caption">N° 01 · nude</text>
+          <text x="310" y="536" class="art-caption">N° 07 · terracotta</text>
+        </svg>
+      </div>
+
+      <a class="hero__scroll" href="#about"><span data-i18n="hero.scroll">листайте</span><i aria-hidden="true"></i></a>
+    </section>
+
+    <div class="divider" aria-hidden="true"><i style="--c:#F1E6DA"></i><i style="--c:#E6CDB9"></i><i style="--c:#C99A86"></i><i style="--c:#A4553A"></i><i style="--c:#6E2A30"></i></div>
+
+    <!-- ============ 2. Обо мне ============ -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <p class="kicker reveal" data-i18n="about.kicker">01 — Обо мне</p>
+      <h2 class="section__title about__title reveal" id="about-title" data-i18n="about.title">Я верю, что хороший маникюр <em>не должен кричать</em></h2>
+
+      <div class="about__body">
+        <div class="about__text reveal">
+          <p class="dropcap" data-i18n="about.p1">Меня зовут Асель…</p>
+          <p data-i18n="about.p2">В студии я принимаю одного человека за раз…</p>
+        </div>
+
+        <ul class="facts reveal">
+          <li><b data-i18n="about.fact1.num">5+</b><span data-i18n="about.fact1.text">лет практики</span></li>
+          <li><b data-i18n="about.fact2.num">4</b><span data-i18n="about.fact2.text">недели носки</span></li>
+          <li><b data-i18n="about.fact3.num">1</b><span data-i18n="about.fact3.text">клиент в студии</span></li>
+        </ul>
+
+        <div class="sterile reveal">
+          <h3 data-i18n="about.sterile.title">Стерильность и материалы</h3>
+          <ol>
+            <li data-i18n="about.sterile.1"></li>
+            <li data-i18n="about.sterile.2"></li>
+            <li data-i18n="about.sterile.3"></li>
+            <li data-i18n="about.sterile.4"></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. Услуги ============ -->
+    <section class="section services" id="services" aria-labelledby="services-title">
+      <div class="section__head">
+        <p class="kicker reveal" data-i18n="services.kicker">02 — Услуги и цены</p>
+        <h2 class="section__title reveal" id="services-title" data-i18n="services.title">Прозрачный прайс <em>без сюрпризов</em></h2>
+        <p class="section__note reveal" data-i18n="services.note">Отметьте услуги — они сразу попадут в форму записи.</p>
+      </div>
+      <ul class="service-list reveal reveal-stagger" id="serviceList"></ul>
+    </section>
+
+    <div class="divider" aria-hidden="true"><i style="--c:#6E2A30"></i><i style="--c:#A4553A"></i><i style="--c:#C99A86"></i><i style="--c:#E6CDB9"></i><i style="--c:#F1E6DA"></i></div>
+
+    <!-- ============ 4. Портфолио ============ -->
+    <section class="section portfolio" id="portfolio" aria-labelledby="portfolio-title">
+      <div class="section__head section__head--split">
+        <div>
+          <p class="kicker reveal" data-i18n="portfolio.kicker">03 — Портфолио</p>
+          <h2 class="section__title reveal" id="portfolio-title" data-i18n="portfolio.title">Работы, <em>которые хочется повторить</em></h2>
+        </div>
+        <div class="chips reveal" role="group" data-i18n-attr="aria-label:portfolio.filter" aria-label="Фильтр по стилю" id="portfolioFilter">
+          <button type="button" class="chip" data-filter="all" aria-pressed="true"><span class="chip__dot" style="--c:conic-gradient(#E6CDB9 0 25%,#F1E6DA 0 50%,#A4553A 0 75%,#6E2A30 0)"></span><span data-i18n="portfolio.all">Все</span></button>
+          <button type="button" class="chip" data-filter="nude" aria-pressed="false"><span class="chip__dot" style="--c:#E6CDB9"></span><span data-i18n="portfolio.nude">Нюд</span></button>
+          <button type="button" class="chip" data-filter="french" aria-pressed="false"><span class="chip__dot chip__dot--french" style="--c:#F0DDD0"></span><span data-i18n="portfolio.french">Френч</span></button>
+          <button type="button" class="chip" data-filter="design" aria-pressed="false"><span class="chip__dot" style="--c:#8B6B5C"></span><span data-i18n="portfolio.design">Дизайн</span></button>
+          <button type="button" class="chip" data-filter="bright" aria-pressed="false"><span class="chip__dot" style="--c:#6E2A30"></span><span data-i18n="portfolio.bright">Яркое</span></button>
+        </div>
+      </div>
+      <ul class="gallery" id="gallery" aria-live="polite"></ul>
+      <p class="section__note portfolio__note" data-i18n="portfolio.note"></p>
+    </section>
+
+    <!-- ============ 5. Подбери оттенок ============ -->
+    <section class="section shade" id="shade" aria-labelledby="shade-title">
+      <div class="shade__card reveal">
+        <div class="shade__intro">
+          <p class="kicker kicker--light" data-i18n="shade.kicker">04 — Подбери оттенок</p>
+          <h2 class="section__title" id="shade-title" data-i18n="shade.title">Какое у вас <em>настроение?</em></h2>
+          <p class="shade__lead" data-i18n="shade.lead"></p>
+
+          <div class="segmented" role="group" data-i18n-attr="aria-label:shade.mode" aria-label="Подбирать по">
+            <button type="button" class="segmented__btn" data-mode="mood" aria-pressed="true" data-i18n="shade.byMood">Настроение</button>
+            <button type="button" class="segmented__btn" data-mode="season" aria-pressed="false" data-i18n="shade.bySeason">Сезон</button>
+          </div>
+          <div class="shade__options" id="shadeOptions" role="group"></div>
+        </div>
+
+        <div class="shade__result" aria-live="polite">
+          <h3 class="sr-only" data-i18n="shade.result">Подборка оттенков</h3>
+          <ul class="shade__swatches" id="shadeSwatches"></ul>
+          <button type="button" class="btn btn--light" id="shadeUse" data-i18n="shade.use">Записаться с этой палитрой</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. Отзывы ============ -->
+    <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+      <div class="section__head">
+        <p class="kicker reveal" data-i18n="reviews.kicker">05 — Отзывы</p>
+        <h2 class="section__title reveal" id="reviews-title" data-i18n="reviews.title">Что говорят <em>клиентки</em></h2>
+      </div>
+      <ul class="review-list reveal reveal-stagger" id="reviewList"></ul>
+    </section>
+
+    <div class="divider" aria-hidden="true"><i style="--c:#F1E6DA"></i><i style="--c:#E6CDB9"></i><i style="--c:#C99A86"></i><i style="--c:#A4553A"></i><i style="--c:#6E2A30"></i></div>
+
+    <!-- ============ 7. Запись ============ -->
+    <section class="section booking" id="booking" aria-labelledby="booking-title">
+      <div class="section__head">
+        <p class="kicker reveal" data-i18n="booking.kicker">06 — Запись</p>
+        <h2 class="section__title reveal" id="booking-title" data-i18n="booking.title">Запишитесь <em>за минуту</em></h2>
+        <p class="section__note reveal" data-i18n="booking.lead"></p>
+      </div>
+
+      <div class="booking__layout">
+        <form class="booking__form" id="bookingForm" novalidate>
+          <ol class="progress" data-i18n-attr="aria-label:booking.progress" aria-label="Шаги записи">
+            <li class="progress__step" data-step="1"><span class="progress__dot">1</span><span class="progress__label" data-i18n="booking.step1">Услуги</span></li>
+            <li class="progress__step" data-step="2"><span class="progress__dot">2</span><span class="progress__label" data-i18n="booking.step2">Дата и время</span></li>
+            <li class="progress__step" data-step="3"><span class="progress__dot">3</span><span class="progress__label" data-i18n="booking.step3">Контакты</span></li>
+            <li class="progress__step" data-step="4"><span class="progress__dot">4</span><span class="progress__label" data-i18n="booking.step4">Проверка</span></li>
+          </ol>
+          <p class="progress__text" id="stepText" aria-live="polite"></p>
+
+          <!-- Шаг 1 -->
+          <fieldset class="step" data-step="1">
+            <legend class="step__title" data-i18n="booking.s1.title">Что будем делать?</legend>
+            <p class="step__hint" data-i18n="booking.s1.hint">Можно выбрать несколько услуг.</p>
+            <div class="pick-list" id="pickList"></div>
+            <p class="error" id="err1" role="alert"></p>
+          </fieldset>
+
+          <!-- Шаг 2 -->
+          <fieldset class="step" data-step="2" hidden>
+            <legend class="step__title" data-i18n="booking.s2.title">Выберите день и время</legend>
+            <div class="datetime">
+              <div class="calendar">
+                <div class="calendar__head">
+                  <button type="button" class="icon-btn" id="calPrev" data-i18n-attr="aria-label:booking.prevMonth" aria-label="Предыдущий месяц">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+                  </button>
+                  <p class="calendar__month" id="calMonth" aria-live="polite"></p>
+                  <button type="button" class="icon-btn" id="calNext" data-i18n-attr="aria-label:booking.nextMonth" aria-label="Следующий месяц">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+                  </button>
+                </div>
+                <div class="calendar__weekdays" id="calWeekdays" aria-hidden="true"></div>
+                <div class="calendar__grid" id="calGrid"></div>
+              </div>
+              <div class="slots">
+                <p class="slots__title" data-i18n="booking.s2.slots">Свободное время</p>
+                <div class="slots__grid" id="slotGrid" role="group" data-i18n-attr="aria-label:booking.s2.slots"></div>
+                <p class="slots__legend" aria-hidden="true">
+                  <span><i class="lg lg--free"></i><span data-i18n="booking.s2.legendFree">свободно</span></span>
+                  <span><i class="lg lg--busy"></i><span data-i18n="booking.s2.legendBusy">занято</span></span>
+                </p>
+              </div>
+            </div>
+            <p class="error" id="err2" role="alert"></p>
+          </fieldset>
+
+          <!-- Шаг 3 -->
+          <fieldset class="step" data-step="3" hidden>
+            <legend class="step__title" data-i18n="booking.s3.title">Как к вам обращаться?</legend>
+            <div class="field">
+              <label for="fName" data-i18n="booking.name">Имя</label>
+              <input id="fName" name="name" type="text" autocomplete="given-name" required maxlength="40" data-i18n-attr="placeholder:booking.namePh">
+            </div>
+            <div class="field">
+              <label for="fPhone" data-i18n="booking.phone">Телефон</label>
+              <input id="fPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="+7 (700) 000-00-00">
+            </div>
+            <div class="field">
+              <label for="fComment"><span data-i18n="booking.comment">Комментарий</span> <small data-i18n="booking.commentOpt">необязательно</small></label>
+              <textarea id="fComment" name="comment" rows="3" maxlength="500" data-i18n-attr="placeholder:booking.commentPh"></textarea>
+            </div>
+            <p class="error" id="err3" role="alert"></p>
+          </fieldset>
+
+          <!-- Шаг 4 -->
+          <fieldset class="step" data-step="4" hidden>
+            <legend class="step__title" data-i18n="booking.s4.title">Всё верно?</legend>
+            <p class="step__hint" data-i18n="booking.s4.lead"></p>
+            <dl class="confirm" id="confirmList"></dl>
+            <p class="step__hint step__hint--ok" id="sentNote" aria-live="polite"></p>
+          </fieldset>
+
+          <div class="step-nav">
+            <button type="button" class="btn btn--ghost" id="btnBack" data-i18n="booking.back">Назад</button>
+            <button type="submit" class="btn btn--dark" id="btnNext" data-i18n="booking.next">Далее</button>
+            <button type="button" class="btn btn--wa" id="btnSend" hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3.1.2.1.7-.1 1.4Z"/></svg>
+              <span data-i18n="booking.send">Отправить в WhatsApp</span>
+            </button>
+          </div>
+        </form>
+
+        <aside class="summary" aria-labelledby="summary-title">
+          <h3 class="summary__title" id="summary-title" data-i18n="booking.summary">Ваша запись</h3>
+          <ul class="summary__list" id="summaryList"></ul>
+          <dl class="summary__totals">
+            <div><dt data-i18n="booking.duration">Время</dt><dd id="sumDuration">—</dd></div>
+            <div><dt data-i18n="booking.date">Дата</dt><dd id="sumDate">—</dd></div>
+            <div class="summary__price"><dt data-i18n="booking.total">Итого</dt><dd id="sumPrice" aria-live="polite">0 ₸</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 8. Футер ============ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <h2 class="footer__title" data-i18n="footer.title">Жду вас <em>в студии</em></h2>
+
+      <div class="footer__grid">
+        <div class="footer__col">
+          <h3 data-i18n="footer.address">Адрес</h3>
+          <p data-i18n="footer.addressText">г. Уральск, ТД «Астана 2», 2 этаж, бутик 11</p>
+        </div>
+        <div class="footer__col">
+          <h3 data-i18n="footer.hours">График</h3>
+          <p data-i18n="footer.hoursText">Пн–Сб: 10:00–20:00<br>Вс: выходной</p>
+        </div>
+        <div class="footer__col">
+          <h3 data-i18n="footer.contacts">Контакты</h3>
+          <ul class="socials">
+            <li><a id="lnkInstagram" href="#" target="_blank" rel="noopener"><span class="nav__swatch" style="--c:#C99A86"></span>Instagram</a></li>
+            <li><a id="lnkWhatsapp" href="#" target="_blank" rel="noopener"><span class="nav__swatch" style="--c:#A4553A"></span>WhatsApp</a></li>
+            <li><a id="lnkTelegram" href="#" target="_blank" rel="noopener"><span class="nav__swatch" style="--c:#6E2A30"></span>Telegram</a></li>
+          </ul>
+        </div>
+
+        <a class="minimap" id="lnkMap" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 320 180" role="img" data-i18n-attr="aria-label:footer.mapAlt" aria-label="Схема: ТД «Астана 2», 2 этаж, бутик 11">
+            <rect width="320" height="180" fill="#EFE6DA"/>
+            <path d="M0 120h320M0 60h320M90 0v180M230 0v180" stroke="#F7F2EC" stroke-width="14"/>
+            <path d="M-10 170 330 20" stroke="#F7F2EC" stroke-width="8"/>
+            <rect x="110" y="76" width="100" height="34" rx="4" fill="#E3D4C1"/>
+            <circle cx="160" cy="93" r="10" fill="#A4553A"/>
+            <circle cx="160" cy="93" r="22" fill="none" stroke="#A4553A" stroke-opacity=".35"/>
+          </svg>
+          <span class="minimap__label"><span data-i18n="footer.map">Открыть в 2GIS</span> <span aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© <span id="year"></span> · <span data-i18n="footer.rights">Нейл-студия Асель, Уральск</span> · <a id="lnkInstagramText" href="#" target="_blank" rel="noopener">@master_nail.uralsk</a></p>
+        <a href="#top" class="footer__top" data-i18n="footer.top">Наверх</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Плавающая кнопка записи на телефоне -->
+  <div class="mobile-cta" id="mobileCta" aria-hidden="true">
+    <a class="btn btn--dark btn--block" href="#booking" tabindex="-1" data-i18n="cta.book">Записаться</a>
+  </div>
+
+  <script src="js/i18n.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
