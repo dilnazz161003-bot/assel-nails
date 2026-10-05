@@ -535,6 +535,7 @@
         <dd>${escapeHtml(r.value)}</dd>
         ${r.total ? '' : `<button type="button" class="link-btn" data-goto="${r.step}">${t('booking.edit')}<span class="sr-only">: ${t(r.key)}</span></button>`}
       </div>`).join('');
+    $('#btnSend').href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(whatsappText())}`;
   }
   $('#confirmList').addEventListener('click', (e) => {
     const b = e.target.closest('[data-goto]');
@@ -558,10 +559,10 @@
     return lines.join('\n');
   }
 
-  $('#btnSend').addEventListener('click', () => {
-    if (!validate(1) || !validate(2) || !validate(3)) return;
-    const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(whatsappText())}`;
-    window.open(url, '_blank', 'noopener');
+  // Обычная ссылка, а не window.open: её не режут блокировщики всплывающих окон
+  $('#btnSend').addEventListener('click', (e) => {
+    if (!validate(1) || !validate(2) || !validate(3)) { e.preventDefault(); return; }
+    $('#btnSend').href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(whatsappText())}`;
     $('#sentNote').textContent = t('booking.sent');
   });
 
