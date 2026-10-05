@@ -112,13 +112,23 @@
     $('#err1').textContent = '';
   }
 
+  // Флакон и ноготь в цвете услуги/оттенка — вместо фотографии продукта
+  function bottleArt(color, bg) {
+    return `
+      <svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <rect width="200" height="150" fill="${bg}"/>
+        <ellipse cx="100" cy="134" rx="74" ry="7" fill="#000" opacity=".12"/>
+        <use href="#bottle" x="40" y="12" width="62" height="124"/>
+        <use href="#nail" x="114" y="40" width="46" height="92" fill="${color}"/>
+      </svg>`;
+  }
+
   function renderServices() {
     $('#serviceList').innerHTML = SERVICES.map((s, i) => {
       const on = state.selected.has(s.id);
       return `
         <li class="service ${on ? 'is-selected' : ''}" style="--c:${s.swatch}; --i:${i}">
-          <span class="service__num">0${i + 1}</span>
-          <span class="service__swatch" aria-hidden="true"></span>
+          <div class="service__art">${bottleArt(s.swatch, s.bg)}</div>
           <div class="service__body">
             <h3 class="service__name">${tx(s.name)}</h3>
             <p class="service__desc">${tx(s.desc)}</p>
@@ -212,7 +222,7 @@
     const set = currentShadeSet();
     $('#shadeSwatches').innerHTML = set.shades.map((s, i) => `
       <li class="swatch" style="--c:${s.hex}; --i:${i}">
-        <span class="swatch__circle" aria-hidden="true"></span>
+        <span class="swatch__art">${bottleArt(s.hex, '#EFE6DB')}</span>
         <span class="swatch__name">${tx(s.name)}</span>
         <span class="swatch__hex">${s.hex}</span>
       </li>`).join('');
@@ -248,6 +258,7 @@
   function renderReviews() {
     $('#reviewList').innerHTML = REVIEWS.map((r, i) => `
       <li class="review" style="--c:${r.swatch}; --i:${i}">
+        <p class="review__stars" role="img" aria-label="${t('reviews.rating')}">${'<svg aria-hidden="true"><use href="#i-star"/></svg>'.repeat(5)}</p>
         <blockquote>
           <p>${tx(r.text)}</p>
         </blockquote>

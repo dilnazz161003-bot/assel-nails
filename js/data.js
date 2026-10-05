@@ -33,6 +33,7 @@ const CONFIG = {
 const SERVICES = [
   {
     id: 'manicure',
+    bg: '#EADFD2',
     swatch: '#E6CDB9',
     price: 4000,
     duration: 60,
@@ -44,6 +45,7 @@ const SERVICES = [
   },
   {
     id: 'gel',
+    bg: '#E3CFC6',
     swatch: '#C99A86',
     price: 7000,
     duration: 90,
@@ -55,6 +57,7 @@ const SERVICES = [
   },
   {
     id: 'extension',
+    bg: '#E6D6C8',
     swatch: '#A4553A',
     price: 12000,
     duration: 150,
@@ -66,6 +69,7 @@ const SERVICES = [
   },
   {
     id: 'design',
+    bg: '#DCCBBC',
     swatch: '#8B6B5C',
     price: 1500,
     duration: 30,
@@ -78,6 +82,7 @@ const SERVICES = [
   },
   {
     id: 'pedicure',
+    bg: '#E0CFCB',
     swatch: '#6E2A30',
     price: 9000,
     duration: 90,

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title data-i18n="meta.title">Асель — нейл-студия в Уральске</title>
   <meta name="description" data-i18n-attr="content:meta.description" content="Авторский маникюр и педикюр в Уральске: нюд, френч, дизайн. Онлайн-запись к мастеру Асель, ТД «Астана 2».">
-  <meta name="theme-color" content="#F7F2EC">
+  <meta name="theme-color" content="#0F0C0B">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23A4553A'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +21,31 @@
       <symbol id="nail" viewBox="0 0 80 160">
         <path d="M40 0C66 0 80 30 80 70v70c0 12-10 20-22 20H22C10 160 0 152 0 140V70C0 30 14 0 40 0Z"/>
       </symbol>
+      <symbol id="bottle" viewBox="0 0 100 200">
+        <defs>
+          <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#8C6A3C"/><stop offset=".45" stop-color="#E6C98F"/><stop offset="1" stop-color="#7A5A30"/>
+          </linearGradient>
+          <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#2A2220"/><stop offset=".3" stop-color="#0E0B0A"/><stop offset=".8" stop-color="#15100E"/><stop offset="1" stop-color="#3A2E2A"/>
+          </linearGradient>
+        </defs>
+        <rect x="33" y="0" width="34" height="80" rx="4" fill="url(#gold)"/>
+        <rect x="28" y="78" width="44" height="10" rx="2" fill="#1A1412"/>
+        <rect x="6" y="86" width="88" height="114" rx="16" fill="url(#glass)"/>
+        <rect x="14" y="94" width="6" height="90" rx="3" fill="#FFFFFF" opacity=".08"/>
+        <rect x="24" y="130" width="52" height="46" fill="none" stroke="#C6A46C" stroke-opacity=".7" stroke-width="1"/>
+      </symbol>
+      <symbol id="i-leaf" viewBox="0 0 32 32"><path d="M16 28V14M16 20c-6 0-10-4-10-10 6 0 10 4 10 10Zm0-2c0-6 4-10 10-10 0 6-4 10-10 10Z"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 32 32"><path d="M16 3 6 7v8c0 7 4 11 10 14 6-3 10-7 10-14V7Z"/><path d="m11 16 4 4 6-8"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 32 32"><path d="M16 27S4 20 4 11a6 6 0 0 1 12-2 6 6 0 0 1 12 2c0 9-12 16-12 16Z"/></symbol>
+      <symbol id="i-polish" viewBox="0 0 32 32"><path d="M13 3h6v9h-6zM11 12h10M9 14h14v13a2 2 0 0 1-2 2H11a2 2 0 0 1-2-2Z"/></symbol>
+      <symbol id="i-jar" viewBox="0 0 32 32"><path d="M7 9h18v4H7zM8 13h16v12a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3Z"/><path d="M8 19h16"/></symbol>
+      <symbol id="i-nail" viewBox="0 0 32 32"><path d="M16 3c5 0 7 5 7 11v11a3 3 0 0 1-3 3h-8a3 3 0 0 1-3-3V14c0-6 2-11 7-11Z"/><path d="M11 9c2-2 3-3 5-3s3 1 5 3"/></symbol>
+      <symbol id="i-brush" viewBox="0 0 32 32"><path d="M26 4 14 16M12 14l6 6M12 14c-4 0-6 3-6 6 0 3-2 5-3 6 5 0 9-1 11-3 2-2 3-4 4-3"/></symbol>
+      <symbol id="i-drops" viewBox="0 0 32 32"><circle cx="11" cy="12" r="6"/><circle cx="21" cy="12" r="6"/><circle cx="16" cy="21" r="6"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="20" rx="2"/><path d="M5 13h22M11 4v6M21 4v6M11 19h3M18 19h3M11 23h3"/></symbol>
+      <symbol id="i-star" viewBox="0 0 20 20"><path d="m10 1.5 2.6 5.6 6 .7-4.5 4.1 1.2 6L10 15l-5.3 2.9 1.2-6L1.4 7.8l6-.7Z"/></symbol>
     </defs>
   </svg>
 
@@ -28,9 +53,11 @@
   <header class="header" id="top">
     <div class="header__inner">
       <a class="brand" href="#top" aria-label="Асель — nail studio">
-        <span class="brand__dot" aria-hidden="true"></span>
-        <span class="brand__name" data-i18n="brand.name">Асель</span>
-        <span class="brand__sub" data-i18n="brand.sub">nail studio</span>
+        <span class="brand__mono" aria-hidden="true">A</span>
+        <span class="brand__text">
+          <span class="brand__name" data-i18n="brand.name">Асель</span>
+          <span class="brand__sub" data-i18n="brand.sub">nail studio</span>
+        </span>
       </a>
 
       <nav class="nav" id="nav" data-i18n-attr="aria-label:nav.label" aria-label="Основная навигация">
@@ -66,55 +93,71 @@
           <span class="hero__name" data-i18n="hero.title1">Асель</span>
           <span class="hero__line"><span data-i18n="hero.title2">ногти как</span> <em data-i18n="hero.title3">тихая роскошь</em></span>
         </h1>
-        <p class="hero__lead reveal" data-i18n="hero.lead">Минимализм, нюдовые оттенки, тонкий френч и сложный авторский дизайн — в спокойной студии, где за процедуру отвечает один мастер.</p>
+        <span class="hero__rule reveal" aria-hidden="true"></span>
+        <p class="hero__tag reveal" data-i18n="hero.tag">Премиальный уход · Стерильно · Без спешки</p>
+        <p class="hero__lead reveal" data-i18n="hero.lead"></p>
         <div class="hero__actions reveal">
-          <a class="btn btn--accent" href="#booking" data-i18n="cta.book">Записаться</a>
+          <a class="btn btn--accent" href="#booking"><span data-i18n="cta.book">Записаться</span><svg class="btn__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
           <a class="btn btn--ghost" href="#portfolio" data-i18n="hero.works">Смотреть работы</a>
         </div>
-        <p class="hero__meta reveal">
-          <span class="dot-row" aria-hidden="true"><i style="--c:#E6CDB9"></i><i style="--c:#A4553A"></i><i style="--c:#6E2A30"></i></span>
-          <span data-i18n="hero.address">ТД «Астана 2», 2 этаж, бутик 11</span>
-        </p>
+        <ul class="perks reveal">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg><span data-i18n="perk.materials">Премиальные материалы</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><span data-i18n="perk.sterile">Стерильный инструмент</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg><span data-i18n="perk.one">Только вы в студии</span></li>
+        </ul>
       </div>
 
-      <div class="hero__art reveal" role="img" data-i18n-attr="aria-label:hero.art" aria-label="Абстрактная композиция: ногти и круглые свотчи лаков в тёплых оттенках">
-        <svg viewBox="0 0 520 620" aria-hidden="true" focusable="false">
-          <path class="art-arch" d="M70 620V280a190 190 0 0 1 380 0v340Z"/>
-          <circle class="art-orbit" cx="260" cy="300" r="232"/>
-          <circle cx="90" cy="120" r="44" fill="#A4553A" class="float float--a"/>
-          <circle cx="455" cy="96" r="22" fill="#E6CDB9" class="float float--b"/>
-          <circle cx="470" cy="470" r="34" fill="#6E2A30" class="float float--c"/>
-          <circle cx="40" cy="430" r="16" fill="#C99A86" class="float float--b"/>
-          <circle cx="132" cy="560" r="10" fill="#2B2320"/>
-
+      <div class="hero__art reveal" role="img" data-i18n-attr="aria-label:hero.art" aria-label="Флакон лака и ногти в нюдовых и винных оттенках">
+        <svg viewBox="0 0 560 600" aria-hidden="true" focusable="false">
+          <defs>
+            <radialGradient id="glow" cx="62%" cy="38%" r="60%">
+              <stop offset="0" stop-color="#5A4034" stop-opacity=".9"/>
+              <stop offset=".55" stop-color="#2A1E19" stop-opacity=".6"/>
+              <stop offset="1" stop-color="#120D0B" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="cushion" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#EFE4D6"/><stop offset="1" stop-color="#CDBBA6"/>
+            </linearGradient>
+          </defs>
+          <circle cx="330" cy="250" r="210" fill="none" stroke="#C6A46C" stroke-opacity=".28"/>
+          <circle cx="330" cy="250" r="244" fill="none" stroke="#C6A46C" stroke-opacity=".12" stroke-dasharray="2 8"/>
+          <!-- подушка для рук -->
+          <path d="M90 520c0-46 60-74 200-74s210 28 210 74v20H90Z" fill="url(#cushion)"/>
+          <path d="M90 540h410v14H90Z" fill="#B9A58E"/>
+          <!-- флакон -->
+          <use href="#bottle" x="120" y="150" width="150" height="300" class="hero__bottle"/>
+          <text x="195" y="380" text-anchor="middle" class="bottle-label">ASSEL</text>
+          <text x="195" y="396" text-anchor="middle" class="bottle-sub">NAIL STUDIO</text>
+          <!-- ногти на подушке -->
           <g class="art-nails">
-            <use href="#nail" x="150" y="210" width="80" height="160" fill="#E6CDB9" transform="rotate(-14 190 290)"/>
-            <g transform="rotate(-4 262 260)">
-              <use href="#nail" x="222" y="150" width="80" height="160" fill="#EBD3C3"/>
-              <path d="M228 194c4-26 18-40 34-40s30 14 34 40c-12-10-22-14-34-14s-22 4-34 14Z" fill="#FBF8F3"/>
+            <use href="#nail" x="300" y="300" width="58" height="116" fill="#E3C3AE" transform="rotate(-12 329 358)"/>
+            <use href="#nail" x="360" y="282" width="58" height="116" fill="#C99A92" transform="rotate(-2 389 340)"/>
+            <g transform="rotate(8 449 352)">
+              <use href="#nail" x="420" y="294" width="58" height="116" fill="#EFDCCD"/>
+              <path d="M424 326c3-18 12-28 25-28s22 10 25 28c-8-6-16-9-25-9s-17 3-25 9Z" fill="#FBF6EF"/>
             </g>
-            <use href="#nail" x="296" y="190" width="80" height="160" fill="#A4553A" transform="rotate(8 336 270)"/>
-            <use href="#nail" x="360" y="260" width="70" height="140" fill="#6E2A30" transform="rotate(20 395 330)"/>
           </g>
-
-          <g class="art-swatches">
-            <circle cx="170" cy="470" r="38" fill="#F1E6DA" stroke="#2B2320" stroke-opacity=".12"/>
-            <circle cx="250" cy="470" r="38" fill="#D8BBA8"/>
-            <circle cx="330" cy="470" r="38" fill="#A4553A"/>
-            <circle cx="410" cy="470" r="20" fill="none" stroke="#2B2320" stroke-opacity=".3"/>
-          </g>
-          <text x="96" y="536" class="art-caption">N° 01 · nude</text>
-          <text x="310" y="536" class="art-caption">N° 07 · terracotta</text>
+          <circle cx="470" cy="120" r="5" fill="#C6A46C"/>
+          <circle cx="96" cy="210" r="3" fill="#C6A46C" opacity=".7"/>
+          <circle cx="520" cy="420" r="3" fill="#C6A46C" opacity=".6"/>
         </svg>
       </div>
-
-      <a class="hero__scroll" href="#about"><span data-i18n="hero.scroll">листайте</span><i aria-hidden="true"></i></a>
     </section>
 
-    <div class="divider" aria-hidden="true"><i style="--c:#F1E6DA"></i><i style="--c:#E6CDB9"></i><i style="--c:#C99A86"></i><i style="--c:#A4553A"></i><i style="--c:#6E2A30"></i></div>
+    <!-- Полоса направлений -->
+    <nav class="strip" data-i18n-attr="aria-label:strip.label" aria-label="Направления">
+      <ul class="strip__list">
+        <li><a href="#services"><svg class="icon" aria-hidden="true"><use href="#i-polish"/></svg><span data-i18n="strip.manicure">Маникюр</span></a></li>
+        <li><a href="#services"><svg class="icon" aria-hidden="true"><use href="#i-jar"/></svg><span data-i18n="strip.gel">Гель-лак</span></a></li>
+        <li><a href="#services"><svg class="icon" aria-hidden="true"><use href="#i-nail"/></svg><span data-i18n="strip.ext">Наращивание</span></a></li>
+        <li><a href="#portfolio"><svg class="icon" aria-hidden="true"><use href="#i-brush"/></svg><span data-i18n="strip.design">Дизайн</span></a></li>
+        <li><a href="#shade"><svg class="icon" aria-hidden="true"><use href="#i-drops"/></svg><span data-i18n="strip.shade">Подбор оттенка</span></a></li>
+        <li><a href="#booking"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span data-i18n="strip.book">Онлайн-запись</span></a></li>
+      </ul>
+    </nav>
 
     <!-- ============ 2. Обо мне ============ -->
-    <section class="section about" id="about" aria-labelledby="about-title">
+    <section class="section about band--dark" id="about" aria-labelledby="about-title">
       <p class="kicker reveal" data-i18n="about.kicker">01 — Обо мне</p>
       <h2 class="section__title about__title reveal" id="about-title" data-i18n="about.title">Я верю, что хороший маникюр <em>не должен кричать</em></h2>
 
@@ -143,7 +186,7 @@
     </section>
 
     <!-- ============ 3. Услуги ============ -->
-    <section class="section services" id="services" aria-labelledby="services-title">
+    <section class="section services band--deep" id="services" aria-labelledby="services-title">
       <div class="section__head">
         <p class="kicker reveal" data-i18n="services.kicker">02 — Услуги и цены</p>
         <h2 class="section__title reveal" id="services-title" data-i18n="services.title">Прозрачный прайс <em>без сюрпризов</em></h2>
@@ -152,10 +195,9 @@
       <ul class="service-list reveal reveal-stagger" id="serviceList"></ul>
     </section>
 
-    <div class="divider" aria-hidden="true"><i style="--c:#6E2A30"></i><i style="--c:#A4553A"></i><i style="--c:#C99A86"></i><i style="--c:#E6CDB9"></i><i style="--c:#F1E6DA"></i></div>
 
     <!-- ============ 4. Портфолио ============ -->
-    <section class="section portfolio" id="portfolio" aria-labelledby="portfolio-title">
+    <section class="section portfolio band--light" id="portfolio" aria-labelledby="portfolio-title">
       <div class="section__head section__head--split">
         <div>
           <p class="kicker reveal" data-i18n="portfolio.kicker">03 — Портфолио</p>
@@ -174,7 +216,7 @@
     </section>
 
     <!-- ============ 5. Подбери оттенок ============ -->
-    <section class="section shade" id="shade" aria-labelledby="shade-title">
+    <section class="section shade band--dark" id="shade" aria-labelledby="shade-title">
       <div class="shade__card reveal">
         <div class="shade__intro">
           <p class="kicker kicker--light" data-i18n="shade.kicker">04 — Подбери оттенок</p>
@@ -191,13 +233,13 @@
         <div class="shade__result" aria-live="polite">
           <h3 class="sr-only" data-i18n="shade.result">Подборка оттенков</h3>
           <ul class="shade__swatches" id="shadeSwatches"></ul>
-          <button type="button" class="btn btn--light" id="shadeUse" data-i18n="shade.use">Записаться с этой палитрой</button>
+          <button type="button" class="btn btn--accent" id="shadeUse" data-i18n="shade.use">Записаться с этой палитрой</button>
         </div>
       </div>
     </section>
 
     <!-- ============ 6. Отзывы ============ -->
-    <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+    <section class="section reviews band--deep" id="reviews" aria-labelledby="reviews-title">
       <div class="section__head">
         <p class="kicker reveal" data-i18n="reviews.kicker">05 — Отзывы</p>
         <h2 class="section__title reveal" id="reviews-title" data-i18n="reviews.title">Что говорят <em>клиентки</em></h2>
@@ -205,10 +247,9 @@
       <ul class="review-list reveal reveal-stagger" id="reviewList"></ul>
     </section>
 
-    <div class="divider" aria-hidden="true"><i style="--c:#F1E6DA"></i><i style="--c:#E6CDB9"></i><i style="--c:#C99A86"></i><i style="--c:#A4553A"></i><i style="--c:#6E2A30"></i></div>
 
     <!-- ============ 7. Запись ============ -->
-    <section class="section booking" id="booking" aria-labelledby="booking-title">
+    <section class="section booking band--light" id="booking" aria-labelledby="booking-title">
       <div class="section__head">
         <p class="kicker reveal" data-i18n="booking.kicker">06 — Запись</p>
         <h2 class="section__title reveal" id="booking-title" data-i18n="booking.title">Запишитесь <em>за минуту</em></h2>
