@@ -107,41 +107,9 @@
         </ul>
       </div>
 
-      <div class="hero__art reveal" role="img" data-i18n-attr="aria-label:hero.art" aria-label="Флакон лака и ногти в нюдовых и винных оттенках">
-        <svg viewBox="0 0 560 600" aria-hidden="true" focusable="false">
-          <defs>
-            <radialGradient id="glow" cx="62%" cy="38%" r="60%">
-              <stop offset="0" stop-color="#5A4034" stop-opacity=".9"/>
-              <stop offset=".55" stop-color="#2A1E19" stop-opacity=".6"/>
-              <stop offset="1" stop-color="#120D0B" stop-opacity="0"/>
-            </radialGradient>
-            <linearGradient id="cushion" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#EFE4D6"/><stop offset="1" stop-color="#CDBBA6"/>
-            </linearGradient>
-          </defs>
-          <circle cx="330" cy="250" r="210" fill="none" stroke="#C6A46C" stroke-opacity=".28"/>
-          <circle cx="330" cy="250" r="244" fill="none" stroke="#C6A46C" stroke-opacity=".12" stroke-dasharray="2 8"/>
-          <!-- подушка для рук -->
-          <path d="M90 520c0-46 60-74 200-74s210 28 210 74v20H90Z" fill="url(#cushion)"/>
-          <path d="M90 540h410v14H90Z" fill="#B9A58E"/>
-          <!-- флакон -->
-          <use href="#bottle" x="120" y="150" width="150" height="300" class="hero__bottle"/>
-          <text x="195" y="380" text-anchor="middle" class="bottle-label">ASSEL</text>
-          <text x="195" y="396" text-anchor="middle" class="bottle-sub">NAIL STUDIO</text>
-          <!-- ногти на подушке -->
-          <g class="art-nails">
-            <use href="#nail" x="300" y="300" width="58" height="116" fill="#E3C3AE" transform="rotate(-12 329 358)"/>
-            <use href="#nail" x="360" y="282" width="58" height="116" fill="#C99A92" transform="rotate(-2 389 340)"/>
-            <g transform="rotate(8 449 352)">
-              <use href="#nail" x="420" y="294" width="58" height="116" fill="#EFDCCD"/>
-              <path d="M424 326c3-18 12-28 25-28s22 10 25 28c-8-6-16-9-25-9s-17 3-25 9Z" fill="#FBF6EF"/>
-            </g>
-          </g>
-          <circle cx="470" cy="120" r="5" fill="#C6A46C"/>
-          <circle cx="96" cy="210" r="3" fill="#C6A46C" opacity=".7"/>
-          <circle cx="520" cy="420" r="3" fill="#C6A46C" opacity=".6"/>
-        </svg>
-      </div>
+      <figure class="hero__photo reveal">
+        <img src="images/hero.webp" width="1100" height="1300" alt="Мастер делает маникюр клиентке" data-i18n-attr="alt:hero.art" fetchpriority="high">
+      </figure>
     </section>
 
     <!-- Полоса направлений -->
@@ -166,6 +134,10 @@
           <p class="dropcap" data-i18n="about.p1">Меня зовут Асель…</p>
           <p data-i18n="about.p2">В студии я принимаю одного человека за раз…</p>
         </div>
+
+        <figure class="about__photo reveal">
+          <img src="images/about.webp" width="900" height="900" loading="lazy" alt="Процесс маникюра: мастер работает с ногтями клиентки" data-i18n-attr="alt:about.photo">
+        </figure>
 
         <ul class="facts reveal">
           <li><b data-i18n="about.fact1.num">5+</b><span data-i18n="about.fact1.text">лет практики</span></li>

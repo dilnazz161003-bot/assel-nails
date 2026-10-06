@@ -123,17 +123,6 @@
       </svg>`;
   }
 
-  // Широкий баннер для раздела прайса
-  function menuArt(color, bg) {
-    return `
-      <svg viewBox="0 0 300 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-        <rect width="300" height="120" fill="${bg}"/>
-        <ellipse cx="150" cy="110" rx="80" ry="5" fill="#000" opacity=".12"/>
-        <use href="#bottle" x="100" y="8" width="52" height="104"/>
-        <use href="#nail" x="162" y="30" width="40" height="80" fill="${color}"/>
-      </svg>`;
-  }
-
   // Цена услуги так, как в прайсе: «от 500 ₸», «+1 000 ₸», «10 000 – 11 000 ₸»
   function priceLabel(sv) {
     if (sv.priceTo) return `${formatPrice(sv.price).replace(' ₸', '')} – ${formatPrice(sv.priceTo)}`;
@@ -143,7 +132,7 @@
   function renderServices() {
     $('#serviceList').innerHTML = CATEGORIES.map((c, i) => `
       <li class="menu" style="--i:${i}">
-        <div class="menu__art">${menuArt(c.swatch, c.bg)}</div>
+        <div class="menu__art"><img src="${c.img}" width="800" height="320" loading="lazy" alt=""></div>
         <h3 class="menu__title">${tx(c.name)}</h3>
         <ul class="menu__list">
           ${SERVICES.filter((sv) => sv.cat === c.id).map((sv) => {
@@ -167,49 +156,14 @@
   });
 
   /* ---------- Портфолио ---------- */
-  // Абстрактный «эскиз» работы: несколько ногтей в палитре
-  function nailArt(item, idx) {
-    const n = 4;
-    const nails = [];
-    for (let i = 0; i < n; i++) {
-      const color = item.palette[i % item.palette.length];
-      const x = 30 + i * 62;
-      const y = 70 - Math.abs(i - 1.5) * 18 + (i === 3 ? 22 : 0);
-      const rot = (i - 1.5) * 7;
-      const cx = x + 25;
-      const cy = y + 50;
-      let extra = '';
-      if (item.tip) {
-        extra = `<path d="M${x + 4} ${y + 26}c3-16 11-24 21-24s18 8 21 24c-7-6-14-8-21-8s-14 2-21 8Z" fill="${item.tip}"/>`;
-      }
-      if (item.deco === 'line' && i % 2 === 1) {
-        extra = `<path d="M${x + 25} ${y + 10} V${y + 92}" stroke="${item.palette[(i + 1) % item.palette.length]}" stroke-width="2.5"/>`;
-      }
-      if (item.deco === 'dots' && i % 2 === 0) {
-        extra = `<circle cx="${cx}" cy="${y + 72}" r="5" fill="#6E2A30"/><circle cx="${cx}" cy="${y + 56}" r="3" fill="#6E2A30"/>`;
-      }
-      if (item.deco === 'moon') {
-        extra = `<path d="M${x + 6} ${y + 100}c4-10 11-15 19-15s15 5 19 15Z" fill="#F7F2EC" opacity=".85"/>`;
-      }
-      nails.push(`<g transform="rotate(${rot} ${cx} ${cy})"><use href="#nail" x="${x}" y="${y}" width="50" height="100" fill="${color}"/>${extra}</g>`);
-    }
-    const orb = ['#A4553A', '#6E2A30', '#C99A86', '#E6CDB9'][idx % 4];
-    return `
-      <svg viewBox="0 0 300 220" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
-        <rect width="300" height="220" fill="${item.bg}"/>
-        <circle cx="${idx % 2 ? 250 : 50}" cy="${idx % 3 ? 190 : 34}" r="${18 + (idx % 3) * 8}" fill="${orb}" opacity=".9"/>
-        ${nails.join('')}
-      </svg>`;
-  }
-
   function renderGallery() {
     const items = PORTFOLIO
       .map((item, idx) => ({ item, idx }))
       .filter(({ item }) => state.filter === 'all' || item.style === state.filter);
     $('#gallery').innerHTML = items.map(({ item, idx }, i) => `
       <li class="tile ${state.filter === 'all' && item.size ? `tile--${item.size}` : ''}" style="--i:${i}">
-        <figure style="background:${item.bg}">
-          ${nailArt(item, idx)}
+        <figure>
+          <img src="${item.img}" width="800" height="800" loading="lazy" alt="${tx(item.title)}">
           <figcaption><span>${tx(item.title)}</span><small>${t('portfolio.' + item.style)}</small></figcaption>
         </figure>
       </li>`).join('');

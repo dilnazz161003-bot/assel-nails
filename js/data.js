@@ -34,9 +34,9 @@ const CONFIG = {
 const PRICE_DATE = { ru: 'Цены актуальны с 1 декабря 2025 г.', kk: 'Бағалар 2025 жылғы 1 желтоқсаннан бастап жарамды.' };
 
 const CATEGORIES = [
-  { id: 'manicure', swatch: '#E3C3AE', bg: '#EADFD2', name: { ru: 'Маникюр', kk: 'Маникюр' } },
-  { id: 'extra', swatch: '#C99A92', bg: '#E3CFC6', name: { ru: 'Дополнительно и снятие', kk: 'Қосымша және алу' } },
-  { id: 'pedicure', swatch: '#6E2A30', bg: '#E0CFCB', name: { ru: 'Педикюр', kk: 'Педикюр' } },
+  { id: 'manicure', img: 'images/menu-manicure.webp', swatch: '#E3C3AE', name: { ru: 'Маникюр', kk: 'Маникюр' } },
+  { id: 'extra', img: 'images/menu-extra.webp', swatch: '#C99A92', name: { ru: 'Дополнительно и снятие', kk: 'Қосымша және алу' } },
+  { id: 'pedicure', img: 'images/menu-pedicure.webp', swatch: '#6E2A30', name: { ru: 'Педикюр', kk: 'Педикюр' } },
 ];
 
 const SERVICES = [
@@ -74,20 +74,22 @@ const SERVICES = [
     name: { ru: 'Обработка пальчиков', kk: 'Саусақтарды өңдеу' } },
 ];
 
-/* Портфолио: style — фильтр, palette — цвета для плейсхолдера */
+/* Портфолио. Сейчас — фото с Unsplash (свободная лицензия) для примера.
+   Замените на свои работы: положите файл в images/ и поменяйте img.
+   style — фильтр (nude, french, design, bright); size — '', 'tall' или 'wide'. */
 const PORTFOLIO = [
-  { style: 'nude',   size: 'tall', palette: ['#E8CFBE', '#E8CFBE', '#E8CFBE', '#E8CFBE'], bg: '#EFE5D9', title: { ru: 'Молочный нюд', kk: 'Сүтті нюд' } },
-  { style: 'french', size: '',     palette: ['#F0DDD0'], tip: '#FBF8F3', bg: '#E4D6C5', title: { ru: 'Тонкий френч', kk: 'Жіңішке френч' } },
-  { style: 'design', size: 'wide', palette: ['#E3CBB8', '#A4553A', '#E3CBB8', '#2B2320'], deco: 'line', bg: '#F3ECE3', title: { ru: 'Графика и линии', kk: 'Графика мен сызықтар' } },
-  { style: 'bright', size: '',     palette: ['#6E2A30', '#6E2A30', '#6E2A30', '#6E2A30'], bg: '#E9DCCD', title: { ru: 'Бордо', kk: 'Бордо' } },
-  { style: 'nude',   size: 'tall', palette: ['#D9B7A2', '#D9B7A2', '#D9B7A2', '#D9B7A2'], bg: '#F5EEE6', title: { ru: 'Кофе с молоком', kk: 'Сүтті кофе' } },
-  { style: 'design', size: 'tall', palette: ['#F1E6DA', '#C99A86', '#F1E6DA', '#C99A86'], deco: 'dots', bg: '#E2D2BF', title: { ru: 'Точечный акцент', kk: 'Нүктелі акцент' } },
-  { style: 'french', size: '',     palette: ['#EAD3C4'], tip: '#6E2A30', bg: '#F2EAE0', title: { ru: 'Цветной френч', kk: 'Түрлі түсті френч' } },
-  { style: 'bright', size: 'wide', palette: ['#A4553A', '#B4502F', '#A4553A', '#B4502F'], bg: '#EDE3D6', title: { ru: 'Терракота', kk: 'Терракота' } },
-  { style: 'design', size: '',     palette: ['#E6CDB9', '#E6CDB9', '#8B6B5C', '#E6CDB9'], deco: 'moon', bg: '#F4EDE4', title: { ru: 'Лунный маникюр', kk: 'Ай маникюры' } },
-  { style: 'nude',   size: '',     palette: ['#EED9CC', '#E2C2AF', '#D6AE98', '#C99A86'], bg: '#E7DACB', title: { ru: 'Градиент нюда', kk: 'Нюд градиенті' } },
-  { style: 'bright', size: 'wide', palette: ['#2B2320', '#2B2320', '#2B2320', '#2B2320'], bg: '#EADFD2', title: { ru: 'Глубокий шоколад', kk: 'Қою шоколад' } },
-  { style: 'french', size: 'wide', palette: ['#E9D2C3'], tip: '#2B2320', bg: '#F1E8DD', title: { ru: 'Графитовый френч', kk: 'Графит френч' } },
+  { style: 'nude',   size: 'tall', img: 'images/w-nude-1.webp',   title: { ru: 'Молочный нюд', kk: 'Сүтті нюд' } },
+  { style: 'french', size: '',     img: 'images/w-french-1.webp', title: { ru: 'Классический френч', kk: 'Классикалық френч' } },
+  { style: 'design', size: 'wide', img: 'images/w-design-1.webp', title: { ru: 'Мраморный френч', kk: 'Мәрмәр френч' } },
+  { style: 'bright', size: '',     img: 'images/w-bright-1.webp', title: { ru: 'Бордо', kk: 'Бордо' } },
+  { style: 'nude',   size: '',     img: 'images/w-nude-2.webp',   title: { ru: 'Беж на квадрате', kk: 'Шаршы пішіндегі беж' } },
+  { style: 'design', size: 'tall', img: 'images/w-design-2.webp', title: { ru: 'Графика и золото', kk: 'Графика мен алтын' } },
+  { style: 'french', size: '',     img: 'images/w-french-2.webp', title: { ru: 'Тонкая линия', kk: 'Жіңішке сызық' } },
+  { style: 'nude',   size: 'wide', img: 'images/w-nude-3.webp',   title: { ru: 'Натуральный блеск', kk: 'Табиғи жылтыр' } },
+  { style: 'design', size: '',     img: 'images/w-design-3.webp', title: { ru: 'Красный с акцентом', kk: 'Акцентті қызыл' } },
+  { style: 'french', size: 'tall', img: 'images/w-french-3.webp', title: { ru: 'Мягкий френч', kk: 'Жұмсақ френч' } },
+  { style: 'bright', size: 'wide', img: 'images/w-bright-2.webp', title: { ru: 'Тёмная слива', kk: 'Қою қара өрік' } },
+  { style: 'nude',   size: 'wide', img: 'images/w-nude-4.webp',   title: { ru: 'Омбре нюд', kk: 'Омбре нюд' } },
 ];
 
 /* «Подбери оттенок»: 3 оттенка на каждое настроение/сезон */
