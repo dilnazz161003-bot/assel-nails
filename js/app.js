@@ -67,6 +67,8 @@
     const burger = $('.burger');
     burger.setAttribute('aria-label', t(burger.getAttribute('aria-expanded') === 'true' ? 'nav.close' : 'nav.open'));
 
+    const words = t('marquee').map((w) => `<span>${w}</span><i></i>`).join('');
+    $('#marquee').innerHTML = words + words;
     renderServices();
     renderGallery();
     renderShadeOptions();
@@ -193,7 +195,7 @@
     const set = currentShadeSet();
     $('#shadeSwatches').innerHTML = set.shades.map((s, i) => `
       <li class="swatch" style="--c:${s.hex}; --i:${i}">
-        <span class="swatch__art">${bottleArt(s.hex, '#EFE6DB')}</span>
+        <span class="swatch__art">${bottleArt(s.hex, '#24143D')}</span>
         <span class="swatch__name">${tx(s.name)}</span>
         <span class="swatch__hex">${s.hex}</span>
       </li>`).join('');
